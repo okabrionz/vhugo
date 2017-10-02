@@ -1,3 +1,13 @@
 {{ define "main" }}
-  <p>/work/list.html</p>
+  <h3>list page defined in /work/list.html | {{ .Title }}</h3>
+  <p>{{ .Content }}</p>
+
+  {{ range .Data.Pages }}
+    <li>
+      <a href="{{ .Permalink }}">{{.Date.Format "2006-01-02"}} | {{.Title}}</a>
+      {{ .Render "summary"}}
+    </li>
+  {{ end }}
+
+  <h3>back <a href="{{ .Site.BaseURL }}">home</a></h3>
 {{ end }}

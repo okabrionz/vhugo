@@ -1,7 +1,7 @@
 ---
 title: "Home"
 date: 2017-09-27
-draft: true
+draft: false
 ---
 
 in content/_index.md

@@ -1,5 +1,5 @@
 ---
-title: Amazon
+title: about
 website: http://amazon.jobs/
 booth: "44"
 ---
