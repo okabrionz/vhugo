@@ -1,0 +1,6 @@
+{{ define "main" }}
+  <!-- e.g., http://mrbo.co/tags/design/ -->
+  {{ range .Data.Pages }}
+    {{ .Render "summary"}}
+  {{ end }}
+{{ end }}

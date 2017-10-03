@@ -1,6 +1,7 @@
 {{ define "main" }}
   <h1>{{ .Title }} (/layout/index.html)</h1>
-  <p>{{ .Content }}</p>
+  
+  {{ .Content }}
 
   {{ range .Site.Sections }}
     <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>

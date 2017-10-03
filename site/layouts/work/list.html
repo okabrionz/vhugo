@@ -1,13 +1,15 @@
 {{ define "main" }}
   <h3>list page defined in /work/list.html | {{ .Title }}</h3>
-  <p>{{ .Content }}</p>
 
   {{ range .Data.Pages }}
-    <li>
-      <a href="{{ .Permalink }}">{{.Date.Format "2006-01-02"}} | {{.Title}}</a>
-      {{ .Render "summary"}}
-    </li>
+    {{ .Render "summary"}}
   {{ end }}
+
+  {{ .Content }}
+
+  <!-- You can call .Site.GetPage with two arguments: kind and kind value. -->
+  {{ $selectedPage := .Site.GetPage "section" "work" }}
+  <i>Site.GetPage "section" "work": {{ $selectedPage.Title }} </i>
 
   <h3>back <a href="{{ .Site.BaseURL }}">home</a></h3>
 {{ end }}
