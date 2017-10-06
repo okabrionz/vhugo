@@ -3,8 +3,12 @@ import {spawn} from "child_process";
 import hugoBin from "hugo-bin";
 import gutil from "gulp-util";
 import postcss from "gulp-postcss";
-import cssImport from "postcss-import";
+import precss from "precss";
+import cleancss from "gulp-clean-css";
 import cssnext from "postcss-cssnext";
+import ifmedia from "postcss-if-media";
+import sourcemaps from "gulp-sourcemaps";
+import rename from "gulp-rename";
 import BrowserSync from "browser-sync";
 import webpack from "webpack";
 import webpackConfig from "./webpack.conf";
@@ -25,9 +29,17 @@ gulp.task("build-preview", ["css", "js"], (cb) => buildSite(cb, hugoArgsPreview,
 
 // Compile CSS with PostCSS
 gulp.task("css", () => (
-  gulp.src("./src/css/*.css")
-    .pipe(postcss([cssImport({from: "./src/css/main.css"}), cssnext()]))
-    .pipe(gulp.dest("./dist/css"))
+  gulp.src(["./src/css/*.css", "./src/css/*.scss"])
+    .pipe(sourcemaps.init())
+    .pipe(postcss([
+      precss(), // SaSS-like
+      cssnext(), // all future cool stuff,
+      ifmedia() // one line media query, this has to go last (order matters)
+     ]))
+    .pipe(cleancss({compatibility: 'ie8'}))  // minify
+    .pipe(rename({extname: '.min.css'}))  // rename
+    .pipe(sourcemaps.write('.'))  // create source map for backwards debugging
+    .pipe(gulp.dest("./dist/css")) // put the bad boys to dist folder
     .pipe(browserSync.stream())
 ));
 
@@ -54,7 +66,7 @@ gulp.task("server", ["hugo", "css", "js"], () => {
     }
   });
   gulp.watch("./src/js/**/*.js", ["js"]);
-  gulp.watch("./src/css/**/*.css", ["css"]);
+  gulp.watch("./src/css/**/*.scss", ["css"]);
   gulp.watch(["./site/**/*", "./site/**/**/*"], ["hugo"]);
 });
 

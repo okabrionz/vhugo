@@ -1,0 +1,20 @@
+/* ==========================================================================
+   Media Queries
+   ========================================================================== */
+
+/* single-liner works like this */
+body {
+  opacity: 1 ?if media (min-width: $desktop-width);
+}
+
+@media (--mobile-l) {
+  .summary-work {
+    border-width: 4px;
+  }
+} 
+
+@media (--desktop) {
+  .summary-work {
+    border-width: 6px;
+  }
+}
