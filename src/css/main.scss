@@ -1,10 +1,10 @@
 /**
  * You can use import statements to include partials:
  */
-@import "imports/variables.scss";
-@import "imports/reset.scss";
+@import "imports/_reset.scss";
+@import "imports/_definitions.scss";
 
 
-@import "modules/core.scss";
-@import "modules/responsive.scss";
+@import "modules/_core.scss";
+@import "modules/_responsive.scss";
 

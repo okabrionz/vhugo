@@ -1,0 +1,54 @@
+/* ==========================================================================
+   variables (SaSS & CSS custom properties)
+   ========================================================================== */
+
+/* CSS variables (not actually mutable) */
+$base-size: 16px; /* it's actually the popular default as well */
+$pink: #ffbfca;
+
+
+/* CSS custom properties (nicknamed CSS variables) */
+
+/* they actually should be declared in responsive.scss since it's easier to refer to */
+
+:root {
+  /* --gutter: 8px; */
+  /* --column-num: 1; */
+}
+
+
+
+/* ==========================================================================
+   Media Queries and custom media definitions
+   ========================================================================== */
+
+$mobile-s-width: 320px;
+$mobile-m-width: 480px;
+$mobile-l-width: 640px;
+$desktop-width: 1024px;
+
+@custom-media --mobile-s (width > 320px) and (width <= 480px);
+@custom-media --mobile-m (width > 480px) and (width <= 640px);
+@custom-media --mobile-l (width > 640px) and (width <= 1024px);
+@custom-media --desktop  (width >= 1024px);
+
+
+/* ==========================================================================
+   Mixins
+   ========================================================================== */
+/* https://webdesign.tutsplus.com/tutorials/postcss-deep-dive-preprocessing-with-precss--cms-24583 */
+
+
+
+
+/* ==========================================================================
+   Extends
+   ========================================================================== */
+
+/* usage: @extend vertical-align; */
+
+@define-extend vertical-align {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}

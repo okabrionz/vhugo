@@ -4,17 +4,18 @@
 
 /* single-liner works like this */
 body {
-  opacity: 1 ?if media (min-width: $desktop-width);
+  opacity: 1 ?if media (min-width: $mobile-m-width);
 }
 
 @media (--mobile-l) {
   .summary-work {
-    border-width: 4px;
+    font-size: 1.25rem;
   }
 } 
 
 @media (--desktop) {
   .summary-work {
-    border-width: 6px;
+    --column-num: 2;
+    font-size: 1.5rem;
   }
 }

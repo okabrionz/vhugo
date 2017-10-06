@@ -8,6 +8,11 @@
 /*
   Or add your statements here:
  */
+/* The :root selector matches the document's root element. */
+:root { 
+  /* do something */
+}
+
 body {
   font-family: sans-serif;
   font-size: $base-size;
@@ -15,16 +20,21 @@ body {
 }
 
 .block-main {
-  border: 2px solid green;
+  font-size: 1rem;
+  border: .125em solid green;
   margin: 0 1em;
   padding: 1em;
 }
 
 .summary-work {
-  border: 2px solid black;
-  margin:1em; 
-  padding:1em;
-  font-size: 1.5rem;
+  --column-num: 1;
+  font-size: 1rem;
+  border: .125em solid black;
+  margin: 1em 0;
+  padding: 1em;
+  width: calc((100 / var(--column-num)) * 1%); /* niiiiice */
+
+  box-sizing: border-box;
 
   .metadata {
     color: $pink; 
