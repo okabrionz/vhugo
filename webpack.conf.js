@@ -18,20 +18,27 @@ export default {
     ]
   },
 
+  devtool: 'source-map',
+
   plugins: [
     new webpack.ProvidePlugin({
       "fetch": "imports-loader?this=>global!exports?global.fetch!whatwg-fetch"
+    }),
+    new webpack.optimize.UglifyJsPlugin({
+      include: /\.min\.js$/,
+      minimize: true,
+      sourceMap: true
     })
   ],
 
   context: path.join(__dirname, "src"),
   entry: {
-    app: ["./js/app"]
+    main: ["./js/main"]
   },
   output: {
-    path: path.join(__dirname, "dist"),
+    path: path.join(__dirname, "dist/js"),
     publicPath: "/",
-    filename: "[name].js"
+    filename: "[name].min.js"
   },
   externals:  [/^vendor\/.+\.js$/]
 };

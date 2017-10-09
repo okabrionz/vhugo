@@ -30,9 +30,9 @@ body {
   --column-num: 1;
   font-size: 1rem;
   border: .125em solid black;
-  margin: 1em 0;
+  margin: 1em .5em;
   padding: 1em;
-  width: calc((100 / var(--column-num)) * 1%); /* niiiiice */
+  width: calc(((100 / var(--column-num)) * 1%) - 1em); /* niiiiice */
 
   box-sizing: border-box;
 
