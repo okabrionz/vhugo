@@ -1,7 +1,7 @@
 baseurl = "/"
 languageCode = "en-us"
 languageLang = "en"
-title = "title (config.toml)"
+title = "New Yieldmo"
 [taxonomies]
   tag = "tags"
 
