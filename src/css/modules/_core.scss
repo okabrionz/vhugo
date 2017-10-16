@@ -37,7 +37,7 @@ body {
   box-sizing: border-box;
 
   .metadata {
-    color: $pink; 
+    color: color($pink lightness(40%));
     font-size:.75rem;
     margin: .5em; /* the margin is always half of the font size */
   }
